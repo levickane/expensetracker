@@ -8,17 +8,55 @@ h1 {
   margin: 0;
   padding: 50px 0px;
 }
-.waves-effect {
-  width: 100%;
-  margin-top: 10%;
-}
 
 .page-headers {
   display: flex;
   justify-content: center;
 }
 
-.addItemBtn {
+.addBtn {
   margin: 10px 0px;
   width: 100%;
+}
+#monthlyHeader {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#addItemBtn {
+  width: 100%;
+}
+#expenseTypeList {
+  background-color: gray;
+  padding: 10px;
+  border-radius: 10px;
+}
+.expenseTypeCost {
+  background-color: rgba(255, 0, 0, 0.65);
+  margin: 5px 0px;
+  padding: 5px;
+  border-radius: 10px;
+}
+.expenseTypeIncome {
+  background-color: rgba(0, 128, 0, 0.65);
+  margin: 5px 0px;
+  padding: 5px;
+  border-radius: 10px;
+}
+.yearItem {
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  margin: 5px 0px;
+  border-radius: 5px;
+}
+.lossTotal {
+  background-color: red;
+  padding: 1px;
+}
+.profitTotal {
+  background-color: green;
+  padding: 1px;
 }
