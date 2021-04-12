@@ -22,3 +22,17 @@ h1 {
   margin: 10px 0px;
   width: 100%;
 }
+
+#chooseMonthModalButton {
+  padding: 10px 0px;
+  width: 100%;
+}
+
+.lossTotal {
+  background-color: red;
+  padding: 1px;
+}
+.profitTotal {
+  background-color: green;
+  padding: 1px;
+}
