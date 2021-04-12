@@ -1,0 +1,24 @@
+header {
+  background-color: black;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin: 0;
+  padding: 50px 0px;
+}
+.waves-effect {
+  width: 100%;
+  margin-top: 10%;
+}
+
+.page-headers {
+  display: flex;
+  justify-content: center;
+}
+
+.addItemBtn {
+  margin: 10px 0px;
+  width: 100%;
+}
