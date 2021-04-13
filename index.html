@@ -26,30 +26,65 @@
     </header>
     <main>
       <div class="row">
-        <div class="col m3">
+        <div class="col s12 l3">
           <div class="card-panel teal">
             <div class="col s12">
               <!-- Modal Trigger -->
-              <a class="addItemBtn waves-light btn modal-trigger" href="#chooseMonthModal"
-                >Add Item<span class="material-icons plus-sign">
+              <a class="addBtn waves-light btn modal-trigger" id="addYear" href="#chooseMonthModal"
+                >Add Year<span class="material-icons plus-sign">
                   add_circle_outline
                 </span></a
               >
             </div>
             
             <div class="col s12">
-              <a class="addItemBtn waves-light btn"
-                >Add Item<span class="material-icons plus-sign">
+              <a class="addBtn waves-effect waves-light btn" id="addExpenseType"
+                >Add Expense Type<span class="material-icons plus-sign">
                   add_circle_outline
                 </span></a>
             </div>
             <div class="white-text">
               <ul id="yearList">
+                <li class="filler center">Select A Year</li>
                 <li class="yearItem">
-                  2020 <span class="yearlyPL right">$</span>
+                  2020 <span class="yearlyPL lossTotal right">$</span>
                 </li>
                 <li class="yearItem">
-                  2021 <span class="yearlyPL right">$</span>
+                  2021 <span class="yearlyPL profitTotal right">$</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col s12 l9">
+          <div class="row" id="monthlyHeader">
+            <div class="col s12 l4">
+              <h3 class="page-headers">Month Name</h3>
+            </div>
+            <div class="col s12 l4 page-headers">
+              <a class="waves-effect waves-light btn" id="addItemBtn"
+                >Add Item<span class="material-icons plus-sign">
+                  add_circle_outline
+                </span></a
+              >
+            </div>
+            <div class="col s12 l4">
+              <h3 class="page-headers">$ Profit/Loss</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <ul id="expenseTypeList">
+                <li class="expenseTypeCost">
+                  groceries <span class="emoji">#</span>
+                  <span class="cost-income">Cost/Income</span
+                  ><span class="cost-income-amount right">$</span>
+                </li>
+                <li class="expenseTypeIncome">
+                  groceries <span class="emoji">#</span>
+                  <span class="cost-income">Cost/Income</span
+                  ><span class="cost-income-amount right">$</span>
                 </li>
               </ul>
             </div>
@@ -105,23 +140,6 @@
             </div>
           </div>
       
-        </div>
-      
-        <div class="col m9">
-          <div class="row">
-            <div class="col m4"><h3 class="page-headers">Month Name</h3></div>
-            <div class="col m4 page-headers">
-              <a class="waves-effect waves-light btn"
-                >Add Item<span class="material-icons plus-sign">
-                  add_circle_outline
-                </span></a
-              >
-            </div>
-            <div class="col m4">
-              <h3 class="page-headers">$ Profit/Loss</h3>
-            </div>
-          </div>
-          <div class="row">grid content here</div>
         </div>
       </div>
     </main>
