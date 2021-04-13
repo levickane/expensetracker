@@ -29,8 +29,7 @@
         <div class="col s12 l3">
           <div class="card-panel teal">
             <div class="col s12">
-              <!-- Modal Trigger -->
-              <a class="addBtn waves-light btn modal-trigger" id="addYear" href="#chooseMonthModal"
+              <a class="addBtn waves-light btn" id="addYear"
                 >Add Year<span class="material-icons plus-sign">
                   add_circle_outline
                 </span></a
@@ -46,7 +45,8 @@
             <div class="white-text">
               <ul id="yearList">
                 <li class="filler center">Select A Year</li>
-                <li class="yearItem">
+                <!-- Modal Trigger -->
+                <li class="yearItem btn modal-trigger" href="#chooseMonthModal">
                   2020 <span class="yearlyPL lossTotal right">$</span>
                 </li>
                 <li class="yearItem">
