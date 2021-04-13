@@ -18,6 +18,12 @@ h1 {
   margin: 10px 0px;
   width: 100%;
 }
+
+#chooseMonthModalButton {
+  padding: 10px 0px;
+  width: 100%;
+}
+
 #monthlyHeader {
   display: flex;
   flex-flow: row wrap;
@@ -60,3 +66,4 @@ h1 {
   background-color: green;
   padding: 1px;
 }
+
