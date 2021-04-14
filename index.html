@@ -57,11 +57,14 @@
                           <tr>
                             <th scope="col">Item Name</th>
                             <th scope="col">Emoji</th>
+                            <th scope="col">Income/Expense</th>
                             <th scope="col">Date</th>
-                            <th scope="col">Cost/Income</th>
+                            <th scope="col">Amount</th>
                           </tr>
                         </thead>
-                        <tbody id="itemDisplay"></tbody>
+                        <tbody id="itemDisplay">
+                            
+                        </tbody>
                       </table>
                     </div>
             </section>
@@ -96,17 +99,14 @@
                   class="validate"
                 />
               </div>
-              <!-- <div class="input-flied col 12">
-                <label>
-                    <input type="checkbox" />
-                    <span>Income</span>
-                  </label>
-                  <label>
-                    <input type="checkbox" />
-                    <span>Expense</span>
-                  </label>
-
-              </div> -->
+              <div class="input-field col s12" id="dropdownPL">
+                <!-- Dropdown Structure -->
+                <select id='incomeExpenseSelection'>
+                    <option disabled selected>Select Income/Expense</option>
+                    <option >Expense</option>
+                    <option >Income</option>
+                </select>
+              </div>
               <div class="input-field col s12">
                 <input
                   required
