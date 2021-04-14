@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
   $('.modal').modal()
 })
@@ -19,22 +18,16 @@ var itemSubmit = $('#itemSubmit')
 itemSubmit.on('click', function () {
   var itemDate = $('#itemDate').val()
   var itemDescription = $('#itemDescription').val()
-  var expenseTypeSelection = $('#expenseTypeSelection').val()
+  var emojiSelection = $('#emojiSelection').val()
   var itemAmount = parseFloat($('#itemAmount').val())
   if (
     itemDate != '' &&
-    expenseTypeSelection !== null &&
+    emojiSelection !== null &&
     itemDescription != '' &&
     itemAmount != ''
   ) {
     itemSubmit.addClass('modal-close')
   }
-  console.log(itemDate)
-  console.log(expenseTypeSelection)
-  console.log(itemDescription)
-  console.log(itemAmount)
 })
 
-
-$('.dropdown-trigger').dropdown();
-
+$('.dropdown-trigger').dropdown()
