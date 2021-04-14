@@ -45,25 +45,26 @@
               <h3 class="page-headers" id="profitLoss">$ Profit/Loss</h3>
             </div>
             <div class="col s12 l4 page-headers">
-              <a
-                class="waves-effect waves-light btn modal-trigger"
-                id="clearItemsBtn"
-                href="#addItemModal"
+              <a class="waves-effect waves-light btn" id="clearItemsBtn"
                 >CLEAR<span class="material-icons"> cancel </span></a
               >
             </div>
           </div>
           <div class="row">
-            <div class="col s12">
-              <ul id="expenseTypeList">
-                <li class="itemName">
-                  Item Name <span class="itemDate">date</span>
-                  <span class="itemEmoji">emoji</span>
-                  <span class="cost-income">Cost/Income</span
-                  ><span class="cost-income-amount right">$</span>
-                </li>
-              </ul>
-            </div>
+            <section class="col s12">
+                      <table class="table table-bordered custom-table" id="expenseTable">
+                        <thead>
+                          <tr>
+                            <th scope="col">Item Name</th>
+                            <th scope="col">Emoji</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Cost/Income</th>
+                          </tr>
+                        </thead>
+                        <tbody id="itemDisplay"></tbody>
+                      </table>
+                    </div>
+            </section>
           </div>
         </div>
         <!-- add Item Modal -->
@@ -81,11 +82,9 @@
                 />
               </div>
               <div class="input-field col s12">
-                <select class="validate left" required id="emojiSelection">
+                <select class="validate" required id="emojiSelection">
                   <option value="" disabled selected>Select Emoji</option>
-                  <option value="1">Option 1</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
+                  <option value="1">option 1</option>
                 </select>
               </div>
               <div class="input-field col s12">
