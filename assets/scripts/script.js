@@ -8,19 +8,13 @@ $(document).ready(function () {
   $('.datepicker').datepicker()
 })
 
-emojiAPI =
+var emojiAPI =
   'https://emoji-api.com/emojis?access_key=df865b35c85a0bc75871e53811f1eddd5cde0ba1'
-
-// getEmojis()
-
 var addItemBtn = $('#addItemBtn')
-addItemBtn.on('click', function () {
-  $('#modalForm').trigger('reset')
-  $('#itemSubmit').removeClass('modal-close')
-})
-
+var clearItemsBtn = $('#clearItemsBtn')
 var itemSubmit = $('#itemSubmit')
-var itemsList = []
+var itemDisplay = $('#itemDisplay')
+var emojiSelection = $('#emojiSelection')
 
 function handleFormSubmit() {
   var itemDate = $('#itemDate').val()
@@ -40,10 +34,7 @@ function handleFormSubmit() {
   }
 }
 
-var itemDisplay = $('#itemDisplay')
-
 function printItemRow(itemDescription, emjoi, date, amount) {
-  console.log('hello')
   var newItemRow = $('<tr>')
   var itemDescriptionTdEl = $('<td>').text(itemDescription)
   var emojieTdEl = $('<td>').text(emjoi)
@@ -51,31 +42,30 @@ function printItemRow(itemDescription, emjoi, date, amount) {
   var priceTdEl = $('<td>').text('$' + amount)
 
   newItemRow.append(itemDescriptionTdEl, emojieTdEl, dateTdEl, priceTdEl)
-  console.log(newItemRow)
   itemDisplay.append(newItemRow)
 }
 
-var clearItemsBtn = $('#clearItemsBtn')
-var itemName = $('.itemName')
+function getEmojis() {
+  fetch(emojiAPI)
+    .then((respons) => {
+      return respons.json()
+    })
+    .then(function (data) {
+      for (i = 492; i < data.length; i++) {
+        var emojiOption = $('<option>')
+        emojiSelection.append(emojiOption)
+      }
+      console.log(emojiSelection)
+      //   emojiSelection.append(emojiOption.html(emoji))
+    })
+}
 
-var expenseList = $('#expenseList')
-clearItemsBtn.on('click', function () {
-  expenseList.children().remove()
-})
-
-// function getEmojis() {
-//   fetch(emojiAPI)
-//     .then((respons) => {
-//       return respons.json()
-//     })
-//     .then(function (data) {
-//       emojiSelection = $('#emojiSelection')
-//       for (i = 0; i < data.length; i++) {
-//         emojiOption = $('<option>')
-//         emoji = data[i].character
-//         emojiSelection.append(emojiOption.html(emoji))
-//       }
-//     })
-// }
-
+getEmojis()
 itemSubmit.on('click', handleFormSubmit)
+addItemBtn.on('click', function () {
+  $('#modalForm').trigger('reset')
+  $('#itemSubmit').removeClass('modal-close')
+})
+clearItemsBtn.on('click', function () {
+  itemDisplay.children().remove()
+})
