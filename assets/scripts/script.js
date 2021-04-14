@@ -1,12 +1,13 @@
 $(document).ready(function () {
   $('.modal').modal()
 })
-$(document).ready(function () {
-  $('select').formSelect()
-})
+// $(document).ready(function () {
+//   $('select').formSelect()
+// })
 $(document).ready(function () {
   $('.datepicker').datepicker()
 })
+$('.dropdown-trigger').dropdown()
 
 var emojiAPI =
   'https://emoji-api.com/emojis?access_key=df865b35c85a0bc75871e53811f1eddd5cde0ba1'
@@ -15,11 +16,13 @@ var clearItemsBtn = $('#clearItemsBtn')
 var itemSubmit = $('#itemSubmit')
 var itemDisplay = $('#itemDisplay')
 var emojiSelection = $('#emojiSelection')
+var selectedEmoji = $('#selectedEmoji')
 
 function handleFormSubmit() {
   var itemDate = $('#itemDate').val()
   var itemDescription = $('#itemDescription').val()
   var emojiSelection = $('#emojiSelection').val()
+  console.log(emojiSelection)
   var itemAmount = parseFloat($('#itemAmount').val())
 
   if (
@@ -34,7 +37,7 @@ function handleFormSubmit() {
 }
 
 function printItemRow(itemDescription, emjoi, date, amount) {
-  var newItemRow = $('<tr>')
+  var newItemRow = $("<tr class='tableitem'>")
   var itemDescriptionTdEl = $('<td>').text(itemDescription)
   var emojieTdEl = $('<td>').text(emjoi)
   var dateTdEl = $('<td>').text(date)
@@ -51,7 +54,7 @@ function getEmojis() {
     })
     .then(function (data) {
       console.log(data)
-      for (var i = 0; i < 10; i++) {
+      for (var i = 491; i < data.length; i++) {
         var emoji = data[i].character
         var emojiOption = $('<option>')
         emojiOption.attr('value', emoji)
@@ -63,10 +66,6 @@ function getEmojis() {
         console.log(emojiSelection[i])
       }
     })
-}
-
-{
-  /* <ul id="select-options-9f68e503-efe6-c98d-b316-1c420fe6c1e5" class="dropdown-content select-dropdown" tabindex="0" style=""><li class="disabled selected" id="select-options-9f68e503-efe6-c98d-b316-1c420fe6c1e50" tabindex="0"><span>Select Emoji</span></li></ul> */
 }
 
 getEmojis()
