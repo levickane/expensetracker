@@ -34,6 +34,11 @@ h1 {
 #addItemBtn {
   width: 100%;
 }
+
+#clearItemsBtn {
+  width: 100%;
+}
+
 #expenseTypeList {
   background-color: gray;
   padding: 10px;

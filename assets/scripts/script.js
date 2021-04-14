@@ -29,5 +29,3 @@ itemSubmit.on('click', function () {
     itemSubmit.addClass('modal-close')
   }
 })
-
-$('.dropdown-trigger').dropdown()
