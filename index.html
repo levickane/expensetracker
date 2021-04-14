@@ -10,8 +10,11 @@
       rel="stylesheet"
     />
     <!--jQuery-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <!-- Compiled and minified CSS -->
     <link
       rel="stylesheet"
@@ -35,12 +38,13 @@
                 </span></a
               >
             </div>
-            
+
             <div class="col s12">
               <a class="addBtn waves-effect waves-light btn modal-trigger" id="addExpenseType" href="#addExpenseTypeModal"
                 >Add Expense Type<span class="material-icons plus-sign">
                   add_circle_outline
-                </span></a>
+                </span></a
+              >
             </div>
             <div class="white-text">
               <ul id="yearList">
@@ -56,14 +60,17 @@
             </div>
           </div>
         </div>
-      
+
         <div class="col s12 l9">
           <div class="row" id="monthlyHeader">
             <div class="col s12 l4">
               <h3 class="page-headers">Month Name</h3>
             </div>
             <div class="col s12 l4 page-headers">
-              <a class="waves-effect waves-light btn" id="addItemBtn"
+              <a
+                class="waves-effect waves-light btn modal-trigger"
+                id="addItemBtn"
+                href="#addItemModal"
                 >Add Item<span class="material-icons plus-sign">
                   add_circle_outline
                 </span></a
@@ -82,7 +89,7 @@
                   ><span class="cost-income-amount right">$</span>
                 </li>
                 <li class="expenseTypeIncome">
-                  groceries <span class="emoji">#</span>
+                  Dining Out <span class="emoji">#</span>
                   <span class="cost-income">Cost/Income</span
                   ><span class="cost-income-amount right">$</span>
                 </li>
@@ -96,49 +103,148 @@
             <div class="modal-content">
               <h4>Choose the month you'd like to see:</h4>
               <div class="row">
-                <div class="col s12 btn chooseMonthModaldiv ">January<span class="right lossTotal">$</span></div>
+                <div class="col s12 btn chooseMonthModaldiv">
+                  January<span class="right lossTotal">$</span>
+                </div>
               </div>
               <div class="row">
-                <div class="col s12 btn chooseMonthModaldiv ">February<span class="right profitTotal">$</span></div>
+                <div class="col s12 btn chooseMonthModaldiv">
+                  February<span class="right profitTotal">$</span>
+                </div>
               </div>
               <div class="row">
-                <div class="col s12 btn chooseMonthModaldiv">March<span class="right">$</span></div>
+                <div class="col s12 btn chooseMonthModaldiv">
+                  March<span class="right">$</span>
+                </div>
               </div>
               <div class="row">
-                <div class="col s12 btn chooseMonthModaldiv">April<span class="right">$</span></div> 
+                <div class="col s12 btn chooseMonthModaldiv">
+                  April<span class="right">$</span>
+                </div>
               </div>
               <div class="row">
-                <div class="col s12 btn chooseMonthModaldiv">May<span class="right">$</span></div>
+                <div class="col s12 btn chooseMonthModaldiv">
+                  May<span class="right">$</span>
+                </div>
               </div>
               <div class="row">
-                <div class="col s12 btn chooseMonthModaldiv">June<span class="right">$</span></div>
+                <div class="col s12 btn chooseMonthModaldiv">
+                  June<span class="right">$</span>
+                </div>
               </div>
               <div class="row">
-                <div class="col s12 btn chooseMonthModaldiv">July<span class="right">$</span></div>
+                <div class="col s12 btn chooseMonthModaldiv">
+                  July<span class="right">$</span>
+                </div>
               </div>
               <div class="row">
-                <div class="col s12 btn chooseMonthModaldiv">August<span class="right">$</span></div>
+                <div class="col s12 btn chooseMonthModaldiv">
+                  August<span class="right">$</span>
+                </div>
               </div>
               <div class="row">
-                <div class="col s12 btn chooseMonthModaldiv">September<span class="right">$</span></div>
+                <div class="col s12 btn chooseMonthModaldiv">
+                  September<span class="right">$</span>
+                </div>
               </div>
               <div class="row">
-                <div class="col s12 btn chooseMonthModaldiv">October<span class="right">$</span></div>
+                <div class="col s12 btn chooseMonthModaldiv">
+                  October<span class="right">$</span>
+                </div>
               </div>
               <div class="row">
-                <div class="col s12 btn chooseMonthModaldiv">November<span class="right">$</span></div>
+                <div class="col s12 btn chooseMonthModaldiv">
+                  November<span class="right">$</span>
+                </div>
               </div>
               <div class="row">
-                <div class="col s12 btn chooseMonthModaldiv">December<span class="right">$</span></div>
+                <div class="col s12 btn chooseMonthModaldiv">
+                  December<span class="right">$</span>
+                </div>
               </div>
+
+            </div>
+            <div class="row modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+                >Agree</a
+              >
+              <a
+                href="index.html"
+                class="modal-close waves-effect waves-green btn-flat"
+                >Cancel</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="addItemModal" class="modal">
+          <div class="modal-content">
+            <h4 class="modalHeader">Modal Header</h4>
+            <form id="modalForm">
+              <div class="input-field col s12">
+                <input
+                  required
+                  type="date"
+                  class="validate"
+                  placeholder="Select Date"
+                  id="itemDate"
+                />
+              </div>
+              <div class="input-field col s12">
+                <select
+                  class="validate left"
+                  required
+                  id="expenseTypeSelection"
+                >
+                  <option value="" disabled selected>Select</option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+              </div>
+              <div class="input-field col s12">
+                <input
+                  required
+                  placeholder="Item Description Here"
+                  id="itemDescription"
+                  type="text"
+                  class="validate"
+                />
+              </div>
+              <div class="input-field col s12">
+                <input
+                  required
+                  placeholder="$$$"
+                  id="itemAmount"
+                  type="number"
+                  class="validate"
+                />
+              </div>
+              <div class="input-field col s12">
+                <button
+                  id="itemSubmit"
+                  class="btn waves-effect waves-light"
+                  type="submit"
+                  name="action"
+                >
+                  Submit
+                </button>
+                <a
+                  href="#!"
+                  class="modal-close waves-effect waves-green btn-flat"
+                  >Cancel</a
+                >
+              </div>
+            </form>
+
 
               
               
             </div>
-            <div class="row modal-footer">
-              <a href="index.html" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-            </div>
           </div>
+          
+          
           <!--Expense type modal-->
           <div id="addExpenseTypeModal" class="modal">
             <div class="modal-content">
@@ -189,6 +295,7 @@
               <a href="#!" class="modal-close waves-effect waves-green btn-flat">Save</a>
               <a href="index.html" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
             </div>
+
           </div>
         </div>
       </div>
