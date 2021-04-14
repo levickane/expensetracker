@@ -17,6 +17,8 @@ var itemSubmit = $('#itemSubmit')
 var itemDisplay = $('#itemDisplay')
 var emojiSelection = $('#emojiSelection')
 var selectedEmoji = $('#selectedEmoji')
+var profitLoss = $('#profitLoss')
+console.log(profitLoss)
 
 function handleFormSubmit(e) {
   e.preventDefault()
@@ -35,6 +37,8 @@ function handleFormSubmit(e) {
     printItemRow(itemDescription, emojiSelection, itemDate, itemAmount)
     itemSubmit.addClass('modal-close')
   }
+  profitLoss = profitLoss.html(profitLoss += itemAmount)
+  console.log(profitLoss)
 }
 
 function printItemRow(itemDescription, emjoi, date, amount) {
