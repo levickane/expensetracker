@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
   $('.modal').modal()
 })
@@ -33,3 +34,7 @@ itemSubmit.on('click', function () {
   console.log(itemDescription)
   console.log(itemAmount)
 })
+
+
+$('.dropdown-trigger').dropdown();
+

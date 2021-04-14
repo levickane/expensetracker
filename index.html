@@ -40,7 +40,7 @@
             </div>
 
             <div class="col s12">
-              <a class="addBtn waves-effect waves-light btn" id="addExpenseType"
+              <a class="addBtn waves-effect waves-light btn modal-trigger" id="addExpenseType" href="#addExpenseTypeModal"
                 >Add Expense Type<span class="material-icons plus-sign">
                   add_circle_outline
                 </span></a
@@ -162,6 +162,7 @@
                   December<span class="right">$</span>
                 </div>
               </div>
+
             </div>
             <div class="row modal-footer">
               <a href="#!" class="modal-close waves-effect waves-green btn-flat"
@@ -236,9 +237,85 @@
                 >
               </div>
             </form>
+
+
+              
+              
+            </div>
+          </div>
+          
+          
+          <!--Expense type modal-->
+          <div id="addExpenseTypeModal" class="modal">
+            <div class="modal-content">
+              <h4>Add a New Expense Type:</h4>
+              <div class="row">
+                <form class="col s12">
+                  
+                  <div class="row">
+                    <div class="col s12">
+                      <div class="input-field inline input-field col s12">
+                        <input id="expense_inline" type="text" class="validate">
+                        <label for="expense_inline">Expense Type</label>
+                      </div>
+                      <a class='dropdown-trigger btn' href='#' data-target='expenseEmojiDropdown'>Add Emoji Descriptor</a>
+                    </div>
+
+                      <!-- Dropdown Structure -->
+                      <ul id='expenseEmojiDropdown' class='dropdown-content'>
+                        <li><a href="#!">one</a></li>
+                        <li class="divider" tabindex="-1"></li>
+                        <li><a href="#!">two</a></li>
+                        <li class="divider" tabindex="-1"></li>
+                        <li><a href="#!">three</a></li>
+                      </ul>
+                  </div>
+                </form>
+              </div>
+              <form action="#">
+                <p>Is it a Profit or a Loss?</p>
+                <p>
+                  <label>
+                    <input name="newExpensePL" type="radio" checked />
+                    <span>Profit</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input name="newExpensePL" type="radio" />
+                    <span>Loss</span>
+                  </label>
+                </p>
+              </form>
+            
+              
+              
+            </div>
+            <div class="row modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Save</a>
+              <a href="index.html" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+            </div>
+
           </div>
         </div>
       </div>
+
+      <!--Expense Type Details Modal-->
+      
+        <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#expenseTypeDetailsBottomModal">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="expenseTypeDetailsBottomModal" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+          
     </main>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

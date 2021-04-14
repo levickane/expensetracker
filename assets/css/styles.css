@@ -67,6 +67,12 @@ h1 {
   padding: 1px;
 }
 
+
 .modalHeader {
   background-color: #009688;
 }
+
+.expenseInput {
+  width:fit-content;
+}
+
