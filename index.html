@@ -179,7 +179,7 @@
         <!-- Modal Structure -->
         <div id="addItemModal" class="modal">
           <div class="modal-content">
-            <h4>Modal Header</h4>
+            <h4 class="modalHeader">Modal Header</h4>
             <form id="modalForm">
               <div class="input-field col s12">
                 <input
@@ -189,7 +189,6 @@
                   placeholder="Select Date"
                   id="itemDate"
                 />
-                <label>Select Date</label>
               </div>
               <div class="input-field col s12">
                 <select
@@ -202,7 +201,6 @@
                   <option value="2">Option 2</option>
                   <option value="3">Option 3</option>
                 </select>
-                <label>Expense Type</label>
               </div>
               <div class="input-field col s12">
                 <input
@@ -212,7 +210,6 @@
                   type="text"
                   class="validate"
                 />
-                <label for="itemDescription">Item Description</label>
               </div>
               <div class="input-field col s12">
                 <input
@@ -222,7 +219,6 @@
                   type="number"
                   class="validate"
                 />
-                <label for="itemDescription">Amount</label>
               </div>
               <div class="input-field col s12">
                 <button
@@ -233,6 +229,11 @@
                 >
                   Submit
                 </button>
+                <a
+                  href="#!"
+                  class="modal-close waves-effect waves-green btn-flat"
+                  >Cancel</a
+                >
               </div>
             </form>
           </div>
