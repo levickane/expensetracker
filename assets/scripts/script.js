@@ -23,29 +23,52 @@ function handleFormSubmit(e) {
   var itemDate = $('#itemDate').val()
   var itemDescription = $('#itemDescription').val()
   var emojiSelection = $('#emojiSelection').val()
-  console.log(emojiSelection)
+  var incomeExpenseSelection = $('#incomeExpenseSelection').val()
   var itemAmount = parseFloat($('#itemAmount').val())
 
   if (
     itemDate != '' &&
     emojiSelection !== null &&
+    incomeExpenseSelection !== null &&
     itemDescription != '' &&
     itemAmount != ''
   ) {
-    printItemRow(itemDescription, emojiSelection, itemDate, itemAmount)
+    printItemRow(
+      itemDescription,
+      emojiSelection,
+      incomeExpenseSelection,
+      itemDate,
+      itemAmount
+    )
     itemSubmit.addClass('modal-close')
   }
 }
 
-function printItemRow(itemDescription, emjoi, date, amount) {
+var itemRows = []
+function printItemRow(itemDescription, emjoi, incomeExpense, date, amount) {
   var newItemRow = $("<tr class='tableitem'>")
   var itemDescriptionTdEl = $('<td>').text(itemDescription)
   var emojieTdEl = $('<td>').text(emjoi)
+  var incomeExpenseTdEl = $('<td>').text(incomeExpense)
   var dateTdEl = $('<td>').text(date)
   var priceTdEl = $('<td>').text('$' + amount)
-
-  newItemRow.append(itemDescriptionTdEl, emojieTdEl, dateTdEl, priceTdEl)
-  itemDisplay.append(newItemRow)
+  console.log(incomeExpenseTdEl[0].innerText)
+  if (incomeExpenseTdEl[0].innerText == 'Expense') {
+    newItemRow.attr('style', 'background-color: red')
+  } else {
+    newItemRow.attr('style', 'background-color: green')
+  }
+  newItemRow.append(
+    itemDescriptionTdEl,
+    emojieTdEl,
+    incomeExpenseTdEl,
+    dateTdEl,
+    priceTdEl
+  )
+  itemRows.push(newItemRow)
+  for (var i = 0; i < itemRows.length; i++) {
+    itemDisplay.append(newItemRow)
+  }
 }
 
 function getEmojis() {
@@ -55,7 +78,7 @@ function getEmojis() {
     })
     .then(function (data) {
       console.log(data)
-      for (var i = 491; i < data.length; i++) {
+      for (var i = 491; i < 500; i++) {
         var emoji = data[i].character
         var emojiOption = $('<option>')
         emojiOption.attr('value', emoji)
