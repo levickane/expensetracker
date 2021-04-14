@@ -23,29 +23,112 @@ function handleFormSubmit(e) {
   var itemDate = $('#itemDate').val()
   var itemDescription = $('#itemDescription').val()
   var emojiSelection = $('#emojiSelection').val()
-  console.log(emojiSelection)
+  var incomeExpenseSelection = $('#incomeExpenseSelection').val()
   var itemAmount = parseFloat($('#itemAmount').val())
 
   if (
     itemDate != '' &&
     emojiSelection !== null &&
+    incomeExpenseSelection !== null &&
     itemDescription != '' &&
     itemAmount != ''
   ) {
-    printItemRow(itemDescription, emojiSelection, itemDate, itemAmount)
+    addItemRows({
+      itemDescription,
+      emojiSelection,
+      incomeExpenseSelection,
+      itemDate,
+      itemAmount
+    })
+
     itemSubmit.addClass('modal-close')
   }
 }
+// get stuff from localstorage
+function getItemRows() {
+  var itemRows
+  if (localStorage.getItem('itemEntries')) {
+    itemRows = JSON.parse(localStorage.getItem('itemEntries'))
+  } else {
+    itemRows = []
+  }
+  return itemRows
+}
+// render stuff from localstorage
+function renderItemRows() {
+  // go and look at localstorage to retrieve all the data
+  /*
+    [{
+          itemDescription,
+          emojiSelection,
+          incomeExpenseSelection,
+          itemDate,
+          itemAmount 
+      }]
+    */
+  var currentStorage = getItemRows()
+  //before we draw on our canvas we want it clean
+  itemDisplay.empty() //cleans the itemDisplay of any innerHtml jQuery method
+  // that data can be looped thru and drawn onto page wiht a template
+  if (currentStorage === []) {
+    return
+  } else {
+    for (var i = 0; i < currentStorage.length; i++) {
+      console.log(currentStorage[i])
+      //we need to figure out if its red or green
 
-function printItemRow(itemDescription, emjoi, date, amount) {
-  var newItemRow = $("<tr class='tableitem'>")
-  var itemDescriptionTdEl = $('<td>').text(itemDescription)
-  var emojieTdEl = $('<td>').text(emjoi)
-  var dateTdEl = $('<td>').text(date)
-  var priceTdEl = $('<td>').text('$' + amount)
+      itemDisplay.append(
+        `<tr style="background-color:${isRedOrGreen(
+          currentStorage[i].incomeExpenseSelection
+        )}">
+                <td>${currentStorage[i].itemDescription}</td>
+                <td>${currentStorage[i].emojiSelection}</td>
+                <td>${currentStorage[i].incomeExpenseSelection}</td>
+                <td>${currentStorage[i].itemDate}</td>
+                <td>${currentStorage[i].itemAmount}</td>
+                <td class="deleteItemRowBtn" data-index=${i}>X</td>
+            </tr>
+                `
+      )
+    }
+  }
+}
+$(document).on('click', '.deleteItemRowBtn', function (event) {
+  // get the data-index from the thing we click--capture in a variable (targetIndex)
+  var targetIndex = $(this).attr('data-index')
+  console.log(targetIndex)
+  // invoke our delete single item function, passing in the targetIndex
+  deleteSingleItem(targetIndex)
+})
 
-  newItemRow.append(itemDescriptionTdEl, emojieTdEl, dateTdEl, priceTdEl)
-  itemDisplay.append(newItemRow)
+function deleteSingleItem(specificIndex) {
+  var allrows = getItemRows()
+  //remove specificItem from allrows
+  var specificItemRemoved = allrows.filter((_, index) => index != specificIndex) //new array minus the speicif item
+  localStorage.setItem('itemEntries', JSON.stringify(specificItemRemoved))
+  renderItemRows()
+}
+
+function emptyItemRows() {
+  localStorage.setItem('itemEntries', '[]')
+  renderItemRows()
+}
+
+function isRedOrGreen(stringToInspect) {
+  if (stringToInspect === 'Income') {
+    return 'green'
+  } else {
+    return 'red'
+  }
+}
+
+// add stuff to localstorage
+function addItemRows(dataToAdd) {
+  var currentStorage = getItemRows() // either [] or [withData]
+  currentStorage.push(dataToAdd)
+  localStorage.setItem('itemEntries', JSON.stringify(currentStorage))
+  renderItemRows()
+  return
 }
 
 function getEmojis() {
@@ -55,7 +138,7 @@ function getEmojis() {
     })
     .then(function (data) {
       console.log(data)
-      for (var i = 491; i < data.length; i++) {
+      for (var i = 491; i < 500; i++) {
         var emoji = data[i].character
         var emojiOption = $('<option>')
         emojiOption.attr('value', emoji)
@@ -75,5 +158,7 @@ addItemBtn.on('click', function () {
   $('#itemSubmit').removeClass('modal-close')
 })
 clearItemsBtn.on('click', function () {
-  itemDisplay.children().remove()
+  emptyItemRows()
 })
+
+renderItemRows()
