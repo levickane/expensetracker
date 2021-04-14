@@ -8,6 +8,9 @@ h1 {
   margin: 0;
   padding: 50px 0px;
 }
+select {
+  display: block !important;
+}
 
 .page-headers {
   display: flex;
@@ -36,6 +39,9 @@ h1 {
 }
 
 #clearItemsBtn {
+  width: 100%;
+}
+#dropdownBtn {
   width: 100%;
 }
 
