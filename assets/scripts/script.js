@@ -29,7 +29,6 @@ function handleFormSubmit() {
     itemAmount != ''
   ) {
     printItemRow(itemDescription, emojiSelection, itemDate, itemAmount)
-
     itemSubmit.addClass('modal-close')
   }
 }
@@ -51,13 +50,23 @@ function getEmojis() {
       return respons.json()
     })
     .then(function (data) {
-      for (i = 492; i < data.length; i++) {
+      console.log(data)
+      for (var i = 0; i < 10; i++) {
+        var emoji = data[i].character
         var emojiOption = $('<option>')
+        emojiOption.attr('value', emoji)
+        emojiOption.text(emoji)
         emojiSelection.append(emojiOption)
       }
-      console.log(emojiSelection)
-      //   emojiSelection.append(emojiOption.html(emoji))
+      for (var i = 0; i < emojiSelection.length; i++) {
+        $('#dropdownMenu').append(emojiSelection[i])
+        console.log(emojiSelection[i])
+      }
     })
+}
+
+{
+  /* <ul id="select-options-9f68e503-efe6-c98d-b316-1c420fe6c1e5" class="dropdown-content select-dropdown" tabindex="0" style=""><li class="disabled selected" id="select-options-9f68e503-efe6-c98d-b316-1c420fe6c1e50" tabindex="0"><span>Select Emoji</span></li></ul> */
 }
 
 getEmojis()
