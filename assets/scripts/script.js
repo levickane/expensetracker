@@ -18,7 +18,8 @@ var itemDisplay = $('#itemDisplay')
 var emojiSelection = $('#emojiSelection')
 var selectedEmoji = $('#selectedEmoji')
 
-function handleFormSubmit() {
+function handleFormSubmit(e) {
+  e.preventDefault()
   var itemDate = $('#itemDate').val()
   var itemDescription = $('#itemDescription').val()
   var emojiSelection = $('#emojiSelection').val()
@@ -63,7 +64,6 @@ function getEmojis() {
       }
       for (var i = 0; i < emojiSelection.length; i++) {
         $('#dropdownMenu').append(emojiSelection[i])
-        console.log(emojiSelection[i])
       }
     })
 }
