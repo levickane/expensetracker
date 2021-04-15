@@ -47,6 +47,51 @@ function handleFormSubmit(e) {
   }
 }
 
+// tallyup all the incomes and expenses -- return total
+function tallyUpIE() {
+  // we need to know all the incomes and expenses
+  var totalData = getItemRows(); // [] or [withData];
+  // reduce this data down to just the income expenses
+  if (totalData ===[]) {
+    return "$0"
+  } else {
+    var justIE = totalData.map(row => {
+      // we need to konw if its expense or income
+      //if income, then the itemAmount is positive
+      if (row.incomeExpenseSelection === 'Income') {
+        return row.itemAmount;
+      }
+      //if expense then itemAmount is negative
+      else {
+        return -row.itemAmount;
+      }
+  
+      /*
+      justIE should look like
+      [244, 517, -14, 52, 715]
+      */
+    })
+    //now we have a groovy array that can use the reduce method to accumlate the total
+    const reducer = (accumulator, currentValue) => {
+      return accumulator + currentValue;
+    }
+    var total = justIE.reduce(reducer, 0);
+  console.log('total: ', total);
+    return total;
+
+  }
+}
+
+// put the tally on the page
+function renderTally(){
+  // get the tally and store in variable
+  var tallyUp = tallyUpIE();
+  // put that variable in the right spot
+  $("#profitLoss").text(tallyUp);
+}
+renderTally();
+
+// get stuff from localstorage
 /* This funciton gets stuff from localstorage. If there's items
 in local storage, then return those items as objects in an array called itemRows.
 If there isn't anything in local storage, return itemRows as an empty array*/
@@ -95,6 +140,7 @@ function renderItemRows() {
       )
     }
   }
+  renderTally();
 }
 
 /*This function will take in a string to inspect. We found the string from the above function by
