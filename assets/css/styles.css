@@ -1,9 +1,11 @@
+html body {
+  width: 100vw;
+}
 header {
   background-image: linear-gradient(to bottom right, black, white);
 }
 h1 {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   color: white;
   margin: 0;
   padding: 50px 0px;
@@ -15,9 +17,28 @@ td {
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin: 0px;
 }
 th {
   text-align: center;
+}
+tbody > tr {
+  border-bottom: 3px solid black;
+}
+
+tbody > tr:last-child {
+  border: none;
+}
+tbody > tr > td {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+tbody > tr > td:first-child {
+  border-left: none;
+  width: 50%;
+}
+tbody > tr > td:last-child {
+  border-right: none;
 }
 
 #chooseMonthModalButton {
@@ -42,7 +63,8 @@ th {
 #expenseTable {
   background-color: gray;
   padding: 10px;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .page-headers {
@@ -95,4 +117,36 @@ th {
 .expense {
   background-color: rgba(151, 0, 0, 0.65);
   color: white;
+}
+.width100 {
+  width: 100%;
+}
+
+@media screen and (max-width: 992px) {
+  td {
+    border: none;
+  }
+  tr {
+    border: none;
+  }
+  tbody > tr > td:first-child {
+    width: auto;
+  }
+  tbody > tr {
+    border-bottom: none;
+  }
+
+  tbody > tr:last-child {
+    border: none;
+  }
+  tbody > tr > td {
+    border-left: none;
+    border-right: none;
+  }
+  tbody > tr > td:first-child {
+    border-left: none;
+  }
+  tbody > tr > td:last-child {
+    border-right: none;
+  }
 }
