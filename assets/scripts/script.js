@@ -59,7 +59,7 @@ function tallyUpIE() {
       // we need to konw if its expense or income
       //if income, then the itemAmount is positive
       if (row.incomeExpenseSelection === 'Income') {
-        return row.itemAmount;
+        return +row.itemAmount;
       }
       //if expense then itemAmount is negative
       else {
@@ -71,13 +71,14 @@ function tallyUpIE() {
       [244, 517, -14, 52, 715]
       */
     })
+    console.log(justIE)
     //now we have a groovy array that can use the reduce method to accumlate the total
     const reducer = (accumulator, currentValue) => {
       return accumulator + currentValue;
     }
     var total = justIE.reduce(reducer, 0);
   console.log('total: ', total);
-    return total;
+    return total.toFixed(2);
 
   }
 }
@@ -87,7 +88,7 @@ function renderTally(){
   // get the tally and store in variable
   var tallyUp = tallyUpIE();
   // put that variable in the right spot
-  $("#profitLoss").text(tallyUp);
+  $("#profitLoss").text("$" + tallyUp);
 }
 renderTally();
 
