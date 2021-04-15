@@ -165,11 +165,13 @@ function getEmojis() {
       return respons.json()
     })
     .then(function (data) {
-      for (var i = 491; i < data.length; i++) {
+      console.log(data)
+      for (var i = 491; i < 1308; i++) {
         var emoji = data[i].character
+        var emojiDescription = data[i].unicodeName
         var emojiOption = $('<option>')
-        emojiOption.attr('value', emoji)
-        emojiOption.text(emoji)
+        emojiOption.attr('value', emoji + ' ' + emojiDescription)
+        emojiOption.text(emoji + ' ' + emojiDescription)
         emojiSelection.append(emojiOption)
       }
       for (var i = 0; i < emojiSelection.length; i++) {
