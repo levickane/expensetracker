@@ -133,14 +133,14 @@ function renderItemRows() {
     for (var i = 0; i < currentStorage.length; i++) {
       itemDisplay.append(
         `<tr class="${isRedOrGreen(currentStorage[i].incomeExpenseSelection)}">
-                <td >${currentStorage[i].itemDescription}</td>
-                <td>${currentStorage[i].emojiSelection}</td>
-                <td>${currentStorage[i].incomeExpenseSelection}</td>
-                <td>${currentStorage[i].itemDate}</td>
-                <td>$${currentStorage[i].itemAmount}</td>
-                <td class="deleteItemRowBtn" data-index=${i}>X</td>
-            </tr>
-             `
+					<td >${currentStorage[i].itemDescription}</td>
+					<td>${currentStorage[i].emojiSelection}</td>
+					<td>${currentStorage[i].incomeExpenseSelection}</td>
+					<td>${currentStorage[i].itemDate}</td>
+					<td>$${currentStorage[i].itemAmount}</td>
+					<td class="deleteItemRowBtn" data-index=${i}>X</td>
+        </tr>
+        `
       )
     }
   }
