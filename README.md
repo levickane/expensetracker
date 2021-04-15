@@ -17,11 +17,15 @@ The final page:
 
 
 ## Visuals
-![Portfolio webpage]()
+<img src="assets/images/expenseTrackerLargeScreen"/>
+
+<img src="assets/images/expenseTrackerModal"/>
+
+<img src="assets/images/expenseTrackerSmallScreen"/>
 
 ## Usage
 
-Click the Add Item button and fill out each section. Choose a date, select a corresponding emoji to the event, add a description, select whether it's a profit or a loss and enter the amount receieved or spent. Submit, and all your information will be entered on the page in order of earliest to latest date.
+Click the Add Item button and fill out each section. Choose a date, select a corresponding emoji to the event, add a description, select whether it's a profit or a loss and enter the amount receieved or spent. Submit, and all your information will be entered on the page in order of earliest to latest date. If desired, delete any item line as necessary or clear via clear button to start again.
 
 ## Contributing
 
@@ -29,4 +33,4 @@ Feel free to contribute by suggesting better code! Contributing a good grade is 
 
 ## Lincensing
 
-Justin Lindsey & Co. 2021
+

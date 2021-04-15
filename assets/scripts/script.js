@@ -50,22 +50,22 @@ function handleFormSubmit(e) {
 // tallyup all the incomes and expenses -- return total
 function tallyUpIE() {
   // we need to know all the incomes and expenses
-  var totalData = getItemRows(); // [] or [withData];
+  var totalData = getItemRows() // [] or [withData];
   // reduce this data down to just the income expenses
-  if (totalData ===[]) {
-    return "$0"
+  if (totalData === []) {
+    return '$0'
   } else {
-    var justIE = totalData.map(row => {
+    var justIE = totalData.map((row) => {
       // we need to konw if its expense or income
       //if income, then the itemAmount is positive
       if (row.incomeExpenseSelection === 'Income') {
-        return +row.itemAmount;
+        return +row.itemAmount
       }
       //if expense then itemAmount is negative
       else {
-        return -row.itemAmount;
+        return -row.itemAmount
       }
-  
+
       /*
       justIE should look like
       [244, 517, -14, 52, 715]
@@ -74,23 +74,22 @@ function tallyUpIE() {
     console.log(justIE)
     //now we have a groovy array that can use the reduce method to accumlate the total
     const reducer = (accumulator, currentValue) => {
-      return accumulator + currentValue;
+      return accumulator + currentValue
     }
-    var total = justIE.reduce(reducer, 0);
-  console.log('total: ', total);
-    return total.toFixed(2);
-
+    var total = justIE.reduce(reducer, 0)
+    console.log('total: ', total)
+    return total.toFixed(2)
   }
 }
 
 // put the tally on the page
-function renderTally(){
+function renderTally() {
   // get the tally and store in variable
-  var tallyUp = tallyUpIE();
+  var tallyUp = tallyUpIE()
   // put that variable in the right spot
-  $("#profitLoss").text("$" + tallyUp);
+  $('#profitLoss').text('$' + tallyUp)
 }
-renderTally();
+renderTally()
 
 // get stuff from localstorage
 /* This funciton gets stuff from localstorage. If there's items
@@ -125,19 +124,16 @@ function renderItemRows() {
   if (currentStorage === []) {
     return
   } else {
-    
-    currentStorage = currentStorage.sort(function(a, b){
-        var aa = a.itemDate.split('-').reverse().join(),
-            bb = b.itemDate.split('-').reverse().join();
-        return aa < bb ? -1 : (aa > bb ? 1 : 0);
-    });
+    currentStorage = currentStorage.sort(function (a, b) {
+      var aa = a.itemDate.split('-').reverse().join(),
+        bb = b.itemDate.split('-').reverse().join()
+      return aa < bb ? -1 : aa > bb ? 1 : 0
+    })
 
     for (var i = 0; i < currentStorage.length; i++) {
       itemDisplay.append(
-        `<tr style="background-color:${isRedOrGreen(
-          currentStorage[i].incomeExpenseSelection
-        )}">
-                <td>${currentStorage[i].itemDescription}</td>
+        `<tr class="${isRedOrGreen(currentStorage[i].incomeExpenseSelection)}">
+                <td style="width:50%">${currentStorage[i].itemDescription}</td>
                 <td>${currentStorage[i].emojiSelection}</td>
                 <td>${currentStorage[i].incomeExpenseSelection}</td>
                 <td>${currentStorage[i].itemDate}</td>
@@ -148,7 +144,7 @@ function renderItemRows() {
       )
     }
   }
-  renderTally();
+  renderTally()
 }
 
 /*This function will take in a string to inspect. We found the string from the above function by
@@ -157,9 +153,9 @@ return a string that says either Income or Expense. If it returns Income, we'll 
 'green' and make the background color of the <tr> green. Else, it will return and become 'red'. */
 function isRedOrGreen(stringToInspect) {
   if (stringToInspect === 'Income') {
-    return 'green'
+    return 'income'
   } else {
-    return 'red'
+    return 'expense'
   }
 }
 
@@ -220,7 +216,7 @@ function getEmojis() {
     })
     .then(function (data) {
       console.log(data)
-      for (var i = 491; i < 1308; i++) {
+      for (var i = 200; i < 1308; i++) {
         var emoji = data[i].character
         var emojiDescription = data[i].unicodeName
         var emojiOption = $('<option>')
