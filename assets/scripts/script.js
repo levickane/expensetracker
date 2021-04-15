@@ -88,7 +88,7 @@ function renderItemRows() {
                 <td>${currentStorage[i].emojiSelection}</td>
                 <td>${currentStorage[i].incomeExpenseSelection}</td>
                 <td>${currentStorage[i].itemDate}</td>
-                <td>${currentStorage[i].itemAmount}</td>
+                <td>$${currentStorage[i].itemAmount}</td>
                 <td class="deleteItemRowBtn" data-index=${i}>X</td>
             </tr>
                 `
