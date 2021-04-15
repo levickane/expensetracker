@@ -68,7 +68,7 @@ function renderItemRows() {
     */
    
   var currentStorage = getItemRows()
-  // var dateStorage= currentStorage[i].itemdate;
+
   
   //before we draw on our canvas we want it clean
   itemDisplay.empty() //cleans the itemDisplay of any innerHtml jQuery method
@@ -76,6 +76,13 @@ function renderItemRows() {
   if (currentStorage === []) {
     return
   } else {
+    
+    currentStorage = currentStorage.sort(function(a, b){
+        var aa = a.itemDate.split('-').reverse().join(),
+            bb = b.itemDate.split('-').reverse().join();
+        return aa < bb ? -1 : (aa > bb ? 1 : 0);
+    });
+
     for (var i = 0; i < currentStorage.length; i++) {
       console.log(currentStorage[i])
       //we need to figure out if its red or green
