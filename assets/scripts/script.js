@@ -17,8 +17,6 @@ var itemSubmit = $('#itemSubmit')
 var itemDisplay = $('#itemDisplay')
 var emojiSelection = $('#emojiSelection')
 var selectedEmoji = $('#selectedEmoji')
-var profitLoss = $('#profitLoss')
-console.log(profitLoss)
 
 function handleFormSubmit(e) {
   e.preventDefault()
@@ -45,9 +43,52 @@ function handleFormSubmit(e) {
 
     itemSubmit.addClass('modal-close')
   }
-  profitLoss = profitLoss.html(profitLoss += itemAmount)
-  console.log(profitLoss)
 }
+
+// tallyup all the incomes and expenses -- return total
+function tallyUpIE() {
+  // we need to know all the incomes and expenses
+  var totalData = getItemRows(); // [] or [withData];
+  // reduce this data down to just the income expenses
+  if (totalData ===[]) {
+    return "$0"
+  } else {
+    var justIE = totalData.map(row => {
+      // we need to konw if its expense or income
+      //if income, then the itemAmount is positive
+      if (row.incomeExpenseSelection === 'Income') {
+        return row.itemAmount;
+      }
+      //if expense then itemAmount is negative
+      else {
+        return -row.itemAmount;
+      }
+  
+      /*
+      justIE should look like
+      [244, 517, -14, 52, 715]
+      */
+    })
+    //now we have a groovy array that can use the reduce method to accumlate the total
+    const reducer = (accumulator, currentValue) => {
+      return accumulator + currentValue;
+    }
+    var total = justIE.reduce(reducer, 0);
+  console.log('total: ', total);
+    return total;
+
+  }
+}
+
+// put the tally on the page
+function renderTally(){
+  // get the tally and store in variable
+  var tallyUp = tallyUpIE();
+  // put that variable in the right spot
+  $("#profitLoss").text(tallyUp);
+}
+renderTally();
+
 // get stuff from localstorage
 function getItemRows() {
   var itemRows
@@ -96,6 +137,7 @@ function renderItemRows() {
       )
     }
   }
+  renderTally();
 }
 $(document).on('click', '.deleteItemRowBtn', function (event) {
   // get the data-index from the thing we click--capture in a variable (targetIndex)
