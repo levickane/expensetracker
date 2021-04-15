@@ -24,7 +24,7 @@ function handleFormSubmit(e) {
   var itemDescription = $('#itemDescription').val()
   var emojiSelection = $('#emojiSelection').val()
   var incomeExpenseSelection = $('#incomeExpenseSelection').val()
-  var itemAmount = parseFloat($('#itemAmount').val())
+  var itemAmount = parseFloat($('#itemAmount').val()).toFixed(2)
 
   if (
     itemDate != '' &&
@@ -138,7 +138,7 @@ function getEmojis() {
     })
     .then(function (data) {
       console.log(data)
-      for (var i = 491; i < 500; i++) {
+      for (var i = 491; i < data.length; i++) {
         var emoji = data[i].character
         var emojiOption = $('<option>')
         emojiOption.attr('value', emoji)
