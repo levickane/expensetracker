@@ -125,6 +125,13 @@ function renderItemRows() {
   if (currentStorage === []) {
     return
   } else {
+    
+    currentStorage = currentStorage.sort(function(a, b){
+        var aa = a.itemDate.split('-').reverse().join(),
+            bb = b.itemDate.split('-').reverse().join();
+        return aa < bb ? -1 : (aa > bb ? 1 : 0);
+    });
+
     for (var i = 0; i < currentStorage.length; i++) {
       itemDisplay.append(
         `<tr style="background-color:${isRedOrGreen(
@@ -137,7 +144,7 @@ function renderItemRows() {
                 <td>$${currentStorage[i].itemAmount}</td>
                 <td class="deleteItemRowBtn" data-index=${i}>X</td>
             </tr>
-                `
+             `
       )
     }
   }
