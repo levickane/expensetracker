@@ -66,7 +66,10 @@ function renderItemRows() {
           itemAmount 
       }]
     */
+   
   var currentStorage = getItemRows()
+  // var dateStorage= currentStorage[i].itemdate;
+  
   //before we draw on our canvas we want it clean
   itemDisplay.empty() //cleans the itemDisplay of any innerHtml jQuery method
   // that data can be looped thru and drawn onto page wiht a template
@@ -88,7 +91,7 @@ function renderItemRows() {
                 <td>${currentStorage[i].itemAmount}</td>
                 <td class="deleteItemRowBtn" data-index=${i}>X</td>
             </tr>
-                `
+             `
       )
     }
   }
