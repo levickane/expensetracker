@@ -133,7 +133,7 @@ function renderItemRows() {
     for (var i = 0; i < currentStorage.length; i++) {
       itemDisplay.append(
         `<tr class="${isRedOrGreen(currentStorage[i].incomeExpenseSelection)}">
-                <td style="width:50%">${currentStorage[i].itemDescription}</td>
+                <td >${currentStorage[i].itemDescription}</td>
                 <td>${currentStorage[i].emojiSelection}</td>
                 <td>${currentStorage[i].incomeExpenseSelection}</td>
                 <td>${currentStorage[i].itemDate}</td>

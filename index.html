@@ -24,47 +24,46 @@
     <title>Profit Loss Tracker</title>
   </head>
   <body>
-    <header>
+    <header class="width100">
       <h1>Expense Tracker</h1>
     </header>
     <main>
-      <div class="row">
-        <div class="col s12">
-          <div class="row" id="monthlyHeader">
-            <div class="col s12 l4 page-headers">
-              <a
-                class="waves-effect waves-light btn modal-trigger"
-                id="addItemBtn"
-                href="#addItemModal"
-                >Add Item<span class="material-icons plus-sign">
-                  add_circle_outline
-                </span></a
-              >
-            </div>
-            <div class="col s12 l4">
-              <h3 class="page-headers" id="profitLoss"></h3>
-            </div>
-            <div class="col s12 l4 page-headers">
-              <a class="waves-effect waves-light btn" id="clearItemsBtn"
-                >CLEAR<span class="material-icons"> cancel </span></a
-              >
-            </div>
+        <div class="row width100" id="monthlyHeader">
+          <div class="col s12 l4 page-headers">
+            <a
+              class="waves-effect waves-light btn modal-trigger"
+              id="addItemBtn"
+              href="#addItemModal"
+              >Add Item<span class="material-icons plus-sign">
+                add_circle_outline
+              </span></a
+            >
           </div>
+          <div class="col s12 l4">
+            <h3 class="page-headers" id="profitLoss"></h3>
+          </div>
+          <div class="col s12 l4 page-headers">
+            <a class="waves-effect waves-light btn" id="clearItemsBtn"
+              >CLEAR<span class="material-icons"> cancel </span></a
+            >
+          </div>
+        </div>
+        <div class="row">
+        <div class="col s12">
           <div class="row">
             <section class="col s12">
-                      <table class="table table-bordered custom-table" id="expenseTable">
-                        <thead>
-                            <tr>
-                                <th scope="col">Item Name</th>
-                                <th scope="col">Emoji</th>
-                                <th scope="col">Income/Expense</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Amount</th>
-                              </tr>
-                        </thead>
-                        <tbody id="itemDisplay"></tbody>
-                      </table>
-                    </div>
+                <table class="table table-bordered custom-table responsive-table" id="expenseTable">
+                    <thead>
+                    <tr>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Emoji</th>
+                        <th scope="col">Income/Expense</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Amount</th>
+                    </tr>
+                    </thead>
+                    <tbody id="itemDisplay"></tbody>
+                </table>
             </section>
           </div>
         </div>
@@ -133,7 +132,6 @@
           </div>
         </div>
         <!-- add item modal finished here -->
-      </div>
     </main>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
