@@ -120,11 +120,13 @@ $(document).on('click', '.deleteItemRowBtn', function (event) {
 
 /*This function takes in a specific index. Then it retreives the items from local storage and sets that array of objects
 to a variable called allrows. Then it sets a variable called specificItemRemoved which is equal to the array
-of objects in localStorage(now called allrows) that is filtered by (no specific value *_*) (because the value isn't important here)
-the index of the object in the array. So if the index of any object in that array equates to or contanains the specificIndex 
-that was passed in from above as the targetIndex then get rid of it and create this new array variable called specificItemRemoved.
-Then we're going to set local storage with the new array of objects called specificItemRemoved and then stringify it 
-in order to store it into local storage. Then immediatly render the item rows again by calling renderItemRows() */
+of objects in localStorage(now called allrows) that is filtered by (no specific value *_* because the value isn't important here)
+the index of the object in the array.**KEY POINT HERE-> (_, index) is a callback function which means: the function is a predicate, 
+to test each element of the array. Return a value that coerces to *true to keep the element, or to false if it doesn't coerce.
+So if the index of any object in that array equates to or contanains the specificIndex that was passed in from above as the 
+targetIndex then get rid of it and create this new array variable called specificItemRemoved. Then we're going to set local 
+storage with the new array of objects called specificItemRemoved and then stringify it in order to store it into local storage. 
+Then immediatly render the item rows again by calling renderItemRows() */
 function deleteSingleItem(specificIndex) {
   var allrows = getItemRows()
   var specificItemRemoved = allrows.filter((_, index) => index != specificIndex) //new array minus the speicif item
