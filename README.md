@@ -17,11 +17,12 @@ The final page:
 
 
 ## Visuals
-<img src="assets/images/expenseTrackerLargeScreen"/>
 
-<img src="assets/images/expenseTrackerModal"/>
+<img src="assets/images/expenseTrackerLargeScreen.png"/>
 
-<img src="assets/images/expenseTrackerSmallScreen"/>
+<img src="assets/images/expenseTrackerModal.png"/>
+
+<img src="assets/images/expenseTrackerSmallScreen.png"/>
 
 ## Usage
 
