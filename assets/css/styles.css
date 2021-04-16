@@ -2,20 +2,30 @@ html body {
   width: 100vw;
 }
 header {
-  background-image: linear-gradient(to bottom right, black, white);
+  background-image: url('../images/moneyInWallet.jpeg');
+  background-size: cover;
+  height: 500px;
+  width: 100%;
+  justify-content: center;
 }
 h1 {
   text-align: center;
   color: white;
-  margin: 0;
+  margin: 0 200px;
   padding: 50px 0px;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 ul {
   text-align: center;
   font-size: large;
   font-weight: 700;
-  padding-bottom: 15px;
+
+  padding: 15px 0px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(25, 56, 25, 0.8);
+  margin: 18px 300px;
 }
+
 select {
   display: block !important;
 }
@@ -153,5 +163,27 @@ tbody > tr > td:last-child {
   }
   #addItemBtn {
     margin-top: 20px;
+  }
+  ul {
+    margin: -50px 0px 18px 0px;
+  }
+  header {
+    background-image: url('../images/moneyInWallet.jpeg');
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    justify-content: center;
+  }
+  h1 {
+    padding: 0px;
+    margin: 0px 0px 50px 0px;
+  }
+}
+@media screen and (max-width: 340px) {
+  h1 {
+    font-size: 40px;
+  }
+  ul {
+    margin-top: -30px;
   }
 }
