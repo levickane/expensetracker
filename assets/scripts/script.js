@@ -220,7 +220,7 @@ function getEmojis() {
         var emoji = data[i].character
         var emojiDescription = data[i].unicodeName
         var emojiOption = $('<option>')
-        emojiOption.attr('value', emoji + ' ' + emojiDescription)
+        emojiOption.attr('value', emoji)
         emojiOption.text(emoji + ' ' + emojiDescription)
         emojiSelection.append(emojiOption)
       }

@@ -26,10 +26,16 @@
   <body>
     <header class="width100">
       <h1>Expense Tracker</h1>
+      <ul>
+        <li>All data is stored on locally on your device</li>
+        <li>Click 'Add Item' to add an item to your expense tracker</li>
+        <li>Click 'CLEAR' to clear the entire list of items</li>
+        <li>Click the 'X' on the item's row to delete a single item</li>
+      </ul>
     </header>
     <main>
       <div class="row width100" id="monthlyHeader">
-        <div class="col s12 l4 page-headers">
+        <div class="col m12 l4 page-headers">
           <a
             class="waves-effect waves-light btn modal-trigger"
             id="addItemBtn"
@@ -39,10 +45,10 @@
             </span></a
           >
         </div>
-        <div class="col s12 l4">
+        <div class="col m12 l4">
           <h3 class="page-headers" id="profitLoss"></h3>
         </div>
-        <div class="col s12 l4 page-headers">
+        <div class="col m12 l4 page-headers">
           <a class="waves-effect waves-light btn" id="clearItemsBtn"
             >CLEAR<span class="material-icons"> cancel </span></a
           >
@@ -63,6 +69,7 @@
                     <th scope="col">Incm/Exps</th>
                     <th scope="col">Date</th>
                     <th scope="col">Amount</th>
+                    <th scope="col">Delete</th>
                   </tr>
                 </thead>
                 <tbody id="itemDisplay"></tbody>
@@ -73,14 +80,14 @@
         <!-- add Item Modal -->
         <div id="addItemModal" class="modal">
           <div class="modal-content">
-            <h4 class="modalHeader">Modal Header</h4>
+            <h4 class="modalHeader">Enter Item Details</h4>
             <form id="modalForm">
               <div class="input-field col s12">
                 <input
                   required
                   type="date"
                   class="validate"
-                  placeholder="Select Date"
+                  name="Date"
                   id="itemDate"
                 />
               </div>
