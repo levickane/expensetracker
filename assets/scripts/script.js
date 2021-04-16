@@ -71,13 +71,11 @@ function tallyUpIE() {
       [244, 517, -14, 52, 715]
       */
     })
-    console.log(justIE)
     //now we have a groovy array that can use the reduce method to accumlate the total
     const reducer = (accumulator, currentValue) => {
       return accumulator + currentValue
     }
     var total = justIE.reduce(reducer, 0)
-    console.log('total: ', total)
     return total.toFixed(2)
   }
 }
@@ -96,9 +94,17 @@ renderTally()
 in local storage, then return those items as objects in an array called itemRows.
 If there isn't anything in local storage, return itemRows as an empty array*/
 function getItemRows() {
-  var itemRows
+  let itemRows = []
   if (localStorage.getItem('itemEntries')) {
     itemRows = JSON.parse(localStorage.getItem('itemEntries'))
+    itemRows = itemRows.sort(function (a, b) {
+      const aa = new Date()
+      aa.setTime(Date.parse(a.itemDate))
+      const bb = new Date()
+      bb.setTime(Date.parse(b.itemDate))
+
+      return aa < bb ? -1 : aa > bb ? 1 : 0
+    })
   } else {
     itemRows = []
   }
@@ -120,16 +126,11 @@ nothing to render. Else - we'll loop over the data that getItemRows returned in 
 draw it onto the page with a template. Inside the <tr> we'll style the background color either red or green.*/
 function renderItemRows() {
   var currentStorage = getItemRows()
+
   itemDisplay.empty()
   if (currentStorage === []) {
     return
   } else {
-    currentStorage = currentStorage.sort(function (a, b) {
-      var aa = a.itemDate.split('-').reverse().join(),
-        bb = b.itemDate.split('-').reverse().join()
-      return aa < bb ? -1 : aa > bb ? 1 : 0
-    })
-
     for (var i = 0; i < currentStorage.length; i++) {
       itemDisplay.append(
         `<tr class="${isRedOrGreen(currentStorage[i].incomeExpenseSelection)}">
@@ -215,7 +216,6 @@ function getEmojis() {
       return respons.json()
     })
     .then(function (data) {
-      console.log(data)
       for (var i = 200; i < 1308; i++) {
         var emoji = data[i].character
         var emojiDescription = data[i].unicodeName
