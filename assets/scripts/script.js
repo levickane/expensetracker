@@ -38,7 +38,8 @@ function handleFormSubmit(e) {
     incomeExpenseSelection !== null &&
     itemDescription != '' &&
     itemAmount != '' &&
-    itemAmount < charCount
+    itemAmount < charCount &&
+    itemAmount > 0
   ) {
     addItemRows({
       itemDescription,
