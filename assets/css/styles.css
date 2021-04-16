@@ -10,6 +10,12 @@ h1 {
   margin: 0;
   padding: 50px 0px;
 }
+ul {
+  text-align: center;
+  font-size: large;
+  font-weight: 700;
+  padding-bottom: 15px;
+}
 select {
   display: block !important;
 }
@@ -105,6 +111,8 @@ tbody > tr > td:last-child {
 
 .modalHeader {
   background-color: #009688;
+  padding: 10px;
+  border-radius: 2px;
 }
 
 .expenseInput {
@@ -123,12 +131,6 @@ tbody > tr > td:last-child {
 }
 
 @media screen and (max-width: 992px) {
-  td {
-    border: none;
-  }
-  tr {
-    border: none;
-  }
   tbody > tr > td:first-child {
     width: auto;
   }
@@ -148,5 +150,8 @@ tbody > tr > td:last-child {
   }
   tbody > tr > td:last-child {
     border-right: none;
+  }
+  #addItemBtn {
+    margin-top: 20px;
   }
 }
