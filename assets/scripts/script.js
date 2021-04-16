@@ -5,6 +5,9 @@ $(document).ready(function () {
   $('.datepicker').datepicker()
 })
 $('.dropdown-trigger').dropdown()
+$(document).ready(function () {
+  $('.tooltipped').tooltip()
+})
 
 //global variables
 var emojiAPI =
@@ -27,13 +30,15 @@ function handleFormSubmit(e) {
   var emojiSelection = $('#emojiSelection').val()
   var incomeExpenseSelection = $('#incomeExpenseSelection').val()
   var itemAmount = parseFloat($('#itemAmount').val()).toFixed(2)
+  var charCount = 9999999999
 
   if (
     itemDate != '' &&
     emojiSelection !== null &&
     incomeExpenseSelection !== null &&
     itemDescription != '' &&
-    itemAmount != ''
+    itemAmount != '' &&
+    itemAmount < charCount
   ) {
     addItemRows({
       itemDescription,
