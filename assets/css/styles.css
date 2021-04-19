@@ -25,7 +25,6 @@ ul {
   background-color: rgba(25, 56, 25, 0.8);
   margin: 18px 300px;
 }
-
 select {
   display: block !important;
 }
@@ -41,7 +40,6 @@ th {
 tbody > tr {
   border-bottom: 3px solid black;
 }
-
 tbody > tr:last-child {
   border: none;
 }
@@ -55,6 +53,12 @@ tbody > tr > td:first-child {
 }
 tbody > tr > td:last-child {
   border-right: none;
+}
+.centeredGif {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 #chooseMonthModalButton {

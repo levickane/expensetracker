@@ -236,6 +236,22 @@ function getEmojis() {
     })
 }
 
+randomGiphyAPIkey =
+  'https://api.giphy.com/v1/gifs/search?api_key=kNYqMrNlt1caSyl4HtO91Wp6WUT325UR&q=money&limit=25&offset=0&rating=g&lang=en'
+function getGiphy() {
+  fetch(randomGiphyAPIkey)
+    .then((response) => {
+      return response.json()
+    })
+    .then(function (data) {
+      gifEl = $('#gif')
+      mediumGif = data.data[0].images.downsized_medium.url
+      gifEl.attr('src', mediumGif)
+      gifEl.attr('height', 'auto')
+    })
+}
+getGiphy()
+
 //This calls the API to get the emojis
 getEmojis()
 //on itemSubmit click, we reference the handleFormSubmit funciton.
