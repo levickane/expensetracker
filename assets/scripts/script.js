@@ -16,7 +16,6 @@ var addItemBtn = $('#addItemBtn')
 var clearItemsBtn = $('#clearItemsBtn')
 var itemSubmit = $('#itemSubmit')
 var itemDisplay = $('#itemDisplay')
-var emojiSelection = $('#emojiSelection')
 var selectedEmoji = $('#selectedEmoji')
 
 //functions
@@ -27,14 +26,12 @@ function handleFormSubmit(e) {
   e.preventDefault()
   var itemDate = $('#itemDate').val()
   var itemDescription = $('#itemDescription').val()
-  var emojiSelection = $('#emojiSelection').val()
   var incomeExpenseSelection = $('#incomeExpenseSelection').val()
   var itemAmount = parseFloat($('#itemAmount').val()).toFixed(2)
   var charCount = 9999999999
 
   if (
     itemDate != '' &&
-    emojiSelection !== null &&
     incomeExpenseSelection !== null &&
     itemDescription != '' &&
     itemAmount != '' &&
@@ -43,7 +40,6 @@ function handleFormSubmit(e) {
   ) {
     addItemRows({
       itemDescription,
-      emojiSelection,
       incomeExpenseSelection,
       itemDate,
       itemAmount
@@ -141,7 +137,6 @@ function renderItemRows() {
       itemDisplay.append(
         `<tr class="${isRedOrGreen(currentStorage[i].incomeExpenseSelection)}">
 					<td >${currentStorage[i].itemDescription}</td>
-					<td>${currentStorage[i].emojiSelection}</td>
 					<td>${currentStorage[i].incomeExpenseSelection}</td>
 					<td>${currentStorage[i].itemDate}</td>
 					<td>$${currentStorage[i].itemAmount}</td>
@@ -216,25 +211,6 @@ to loop over all the data in the emoji json object. Using dot notation we're abl
 for each emoji, we're going to create an <option> and a value attribut and setting the value attribut and the 
 text/innerText as the emoji character, then appending the emoji character option inside the emojiSelection <select> tag.
 for every emojiSelection, we're appending that to the dropdownMenu.*/
-function getEmojis() {
-  fetch(emojiAPI)
-    .then((respons) => {
-      return respons.json()
-    })
-    .then(function (data) {
-      for (var i = 200; i < 1308; i++) {
-        var emoji = data[i].character
-        var emojiDescription = data[i].unicodeName
-        var emojiOption = $('<option>')
-        emojiOption.attr('value', emoji)
-        emojiOption.text(emoji + ' ' + emojiDescription)
-        emojiSelection.append(emojiOption)
-      }
-      for (var i = 0; i < emojiSelection.length; i++) {
-        $('#dropdownMenu').append(emojiSelection[i])
-      }
-    })
-}
 
 randomGiphyAPIkey =
   'https://api.giphy.com/v1/gifs/search?api_key=kNYqMrNlt1caSyl4HtO91Wp6WUT325UR&q=money&limit=25&offset=0&rating=g&lang=en'
@@ -252,8 +228,6 @@ function getGiphy() {
 }
 getGiphy()
 
-//This calls the API to get the emojis
-getEmojis()
 //on itemSubmit click, we reference the handleFormSubmit funciton.
 itemSubmit.on('click', handleFormSubmit)
 /*on addItemBtn click, the modal form is reset to blank fields and the itemSubmit button's class,
